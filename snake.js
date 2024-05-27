@@ -35,7 +35,7 @@ function empiezoJ() {
   // Velocidad juego
     velo = parseInt(selectorVeloz.value);
 
-  // Empieza juego
+  // Empieza juego si se selecciona velocidad
   if (velo >= 50) {
     juego = setInterval(dibujo, velo);
   }
