@@ -11,6 +11,9 @@ let dy = 0;
 let manzana = {x: Math.floor(Math.random() * 20) * cuadro, y: Math.floor(Math.random() * 20) * cuadro};
 let juego;
 let puntos = 0;
+// Background blanco
+ctx.fillStyle = 'white';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 // Eventos listener para boton Start del juego y flechas teclado
 botonSt.addEventListener('click', empiezoJ);
