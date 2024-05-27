@@ -5,9 +5,10 @@ const botonSt = document.getElementById('botonStart');
 const puntosDisplay = document.getElementById('puntos');
 const selectorVeloz = document.getElementById('veloz');
 const cuadrado = 20;
-let serpiente = [{x: 200, y: 200}];
+let serpiente = [{x: canvas.width/2, y: canvas.height/2}];
 let dx = cuadrado;
 let dy = 0;
+// asignación aleatoria coordenadas con valor entero redondeado
 let manzana = {x: Math.floor(Math.random() * 20) * cuadrado, y: Math.floor(Math.random() * 20) * cuadrado};
 let juego;
 let puntos = 0;
@@ -22,7 +23,7 @@ document.addEventListener('keydown', cambioDireccion);
 
 function empiezoJ() {
   // Reset juego
-  serpiente = [{x: 200, y: 200}];
+  serpiente = [{x: canvas.width/2, y: canvas.height/2}];
   dx = cuadrado;
   dy = 0;
   manzana = {x: Math.floor(Math.random() * 20) * cuadrado, y: Math.floor(Math.random() * 20) * cuadrado};
@@ -66,29 +67,29 @@ function dibujo() {
   ctx.fillStyle = 'white';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  // Dibujo manzana
+  // Cuadrado manzana
   ctx.fillStyle = 'red';
   ctx.fillRect(manzana.x, manzana.y, cuadrado, cuadrado);
 
-  // Dibujo contorno manzana
+  // Contorno cuadrado manzana
   ctx.strokeStyle = 'black';
   ctx.strokeRect(manzana.x, manzana.y, cuadrado, cuadrado);
 
-  // Dibujo serpiente
+  // Cuadrado serpiente
   ctx.fillStyle = 'green';
   serpiente.forEach((segment) => {
   ctx.fillRect(segment.x, segment.y, cuadrado, cuadrado);
   
-  // Dibujo contorno serpiente
+  // Contorno cuadrado serpiente
   ctx.strokeStyle = 'black';
   ctx.strokeRect(segment.x, segment.y, cuadrado, cuadrado);
   });
 
-  // Mueve serpiente
+  // Agrega una coordenada al array serpiente
   const cabeza = {x: serpiente[0].x + dx, y: serpiente[0].y + dy};
   serpiente.unshift(cabeza);
 
-  // Comprueba si la serpiente come manzana
+  // Comprueba si la serpiente come manzana sino elimina última coordenada del array y la devuelve
   if (cabeza.x === manzana.x && cabeza.y === manzana.y) {
     manzana = {x: Math.floor(Math.random() * 20) * cuadrado, y: Math.floor(Math.random() * 20) * cuadrado};
     puntos++;
