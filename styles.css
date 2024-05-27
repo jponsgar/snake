@@ -29,9 +29,10 @@ section {
 }
 
 section canvas {
-  display:flex; 
-  margin: auto;
-  padding:12dvh;
+  position: absolute;
+  left: 27.5%;
+  top:17%;
+  border: 2px solid black;
 }
 
 section button {
@@ -39,6 +40,7 @@ section button {
   padding:2.2dvh;
   left: 60%;
   top: 2.4%;
+  border: 2px solid black;
 }
 
 section div{
@@ -47,6 +49,7 @@ section div{
   left: 30%;
   top: 2.5%;
   background-color: white;
+  border: 2px solid black;
 }
 
 section::after {
