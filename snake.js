@@ -4,13 +4,14 @@ const ctx = canvas.getContext('2d');
 const botonSt = document.getElementById('botonStart');
 const puntosDisplay = document.getElementById('puntos');
 const selectorVeloz = document.getElementById('veloz');
-const cuadro = 20;
+const cuadrado = 20;
 let serpiente = [{x: 200, y: 200}];
-let dx = cuadro;
+let dx = cuadrado;
 let dy = 0;
-let manzana = {x: Math.floor(Math.random() * 20) * cuadro, y: Math.floor(Math.random() * 20) * cuadro};
+let manzana = {x: Math.floor(Math.random() * 20) * cuadrado, y: Math.floor(Math.random() * 20) * cuadrado};
 let juego;
 let puntos = 0;
+
 // Background blanco
 ctx.fillStyle = 'white';
 ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -22,9 +23,9 @@ document.addEventListener('keydown', cambioDireccion);
 function empiezoJ() {
   // Reset juego
   serpiente = [{x: 200, y: 200}];
-  dx = cuadro;
+  dx = cuadrado;
   dy = 0;
-  manzana = {x: Math.floor(Math.random() * 20) * cuadro, y: Math.floor(Math.random() * 20) * cuadro};
+  manzana = {x: Math.floor(Math.random() * 20) * cuadrado, y: Math.floor(Math.random() * 20) * cuadrado};
   puntos = 0;
 
   // Limpia intervalo juego
@@ -42,18 +43,18 @@ function empiezoJ() {
 }
 
 function cambioDireccion(e) {
-  if (e.keyCode === 37 && dx !== cuadro) { // flecha izquierda
-    dx = -cuadro;
+  if (e.keyCode === 37 && dx !== cuadrado) { // flecha izquierda
+    dx = -cuadrado;
     dy = 0;
-  } else if (e.keyCode === 38 && dy !== cuadro) { // flecha arriba
+  } else if (e.keyCode === 38 && dy !== cuadrado) { // flecha arriba
     dx = 0;
-    dy = -cuadro;
-  } else if (e.keyCode === 39 && dx !== -cuadro) { // flecha derecha
-    dx = cuadro;
+    dy = -cuadrado;
+  } else if (e.keyCode === 39 && dx !== -cuadrado) { // flecha derecha
+    dx = cuadrado;
     dy = 0;
-  } else if (e.keyCode === 40 && dy !== -cuadro) { // flecha abajo
+  } else if (e.keyCode === 40 && dy !== -cuadrado) { // flecha abajo
     dx = 0;
-    dy = cuadro;
+    dy = cuadrado;
   }
 }
 
@@ -67,12 +68,20 @@ function dibujo() {
 
   // Dibujo manzana
   ctx.fillStyle = 'red';
-  ctx.fillRect(manzana.x, manzana.y, cuadro, cuadro);
+  ctx.fillRect(manzana.x, manzana.y, cuadrado, cuadrado);
+
+  // Dibujo contorno manzana
+  ctx.strokeStyle = 'black';
+  ctx.strokeRect(manzana.x, manzana.y, cuadrado, cuadrado);
 
   // Dibujo serpiente
   ctx.fillStyle = 'green';
   serpiente.forEach((segment) => {
-    ctx.fillRect(segment.x, segment.y, cuadro, cuadro);
+  ctx.fillRect(segment.x, segment.y, cuadrado, cuadrado);
+  
+  // Dibujo contorno serpiente
+  ctx.strokeStyle = 'black';
+  ctx.strokeRect(segment.x, segment.y, cuadrado, cuadrado);
   });
 
   // Mueve serpiente
@@ -81,7 +90,7 @@ function dibujo() {
 
   // Comprueba si la serpiente come manzana
   if (cabeza.x === manzana.x && cabeza.y === manzana.y) {
-    manzana = {x: Math.floor(Math.random() * 20) * cuadro, y: Math.floor(Math.random() * 20) * cuadro};
+    manzana = {x: Math.floor(Math.random() * 20) * cuadrado, y: Math.floor(Math.random() * 20) * cuadrado};
     puntos++;
   } else {
     serpiente.pop();
@@ -90,7 +99,7 @@ function dibujo() {
   // Comprueba si la serpiente colisiona con el limite o ella misma, entonces finaliza juego
   if (cabeza.x < 0 || cabeza.x >= canvas.width || cabeza.y < 0 || cabeza.y >= canvas.height || colision()) {
     clearInterval(juego);
-    alert("Game Over! Manzanas comidas: " + puntos);
+    alert("Fin del Juego !!! Puntuación de " + puntos + " Manzanas !!!");
   }
 }
 
