@@ -36,7 +36,9 @@ function empiezoJ() {
     velo = parseInt(selectorVeloz.value);
 
   // Empieza juego
+  if (velo >= 50) {
     juego = setInterval(dibujo, velo);
+  }
 }
 
 function cambioDireccion(e) {
