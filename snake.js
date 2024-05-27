@@ -32,7 +32,7 @@ function empiezoJ() {
   // Velocidad juego
     velo = parseInt(selectorVeloz.value);
 
-    // Empiezo juego
+  // Empieza juego
     juego = setInterval(dibujo, velo);
 }
 
@@ -93,4 +93,3 @@ function dibujo() {
 function colision() {
   return serpiente.slice(1).some(segment => segment.x === serpiente[0].x && segment.y === serpiente[0].y);
 }
-

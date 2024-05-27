@@ -4,7 +4,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
 }
 
 header {
@@ -38,15 +38,15 @@ section canvas {
 
 section button {
   position: absolute;
-  padding:2dvh;
-  left: 54%;
-  top: 3%;
+  padding:2.2dvh;
+  left: 60%;
+  top: 2.4%;
 }
 
 section div{
   position: absolute;
   padding: 2dvh;
-  left: 38%;
+  left: 30%;
   top: 2.5%;
   background-color: white;
 }
