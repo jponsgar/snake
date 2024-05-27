@@ -83,13 +83,14 @@ function dibujo() {
   }
 
   // Comprueba si la serpiente colisiona con el limite o ella misma, entonces finaliza juego
-  if (cabeza.x < 0 || cabeza.x >= canvas.width || cabeza.y < 0 || cabeza.y >= canvas.height) {
+  if (cabeza.x < 0 || cabeza.x >= canvas.width || cabeza.y < 0 || cabeza.y >= canvas.height || colision()) {
     clearInterval(juego);
     alert("Game Over! Manzanas comidas: " + puntos);
   }
 }
 
-//function colision() {
-//  return serpiente.slice(1).some(segment => segment.x === serpiente[0].x && segment.y === serpiente[0].y);
-//}
-//if (cabeza.x < 0 || cabeza.x >= canvas.width || cabeza.y < 0 || cabeza.y >= canvas.height || colision()) {
+// Colision con ella misma
+function colision() {
+  return serpiente.slice(1).some(segment => segment.x === serpiente[0].x && segment.y === serpiente[0].y);
+}
+
