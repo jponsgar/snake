@@ -30,24 +30,24 @@ section {
 
 section canvas {
   position: absolute;
-  left: 27.5%;
-  top:17%;
+  left: 35.3%;
+  top:15%;
   border: 2px solid black;
 }
 
 section button {
   position: absolute;
   padding:2.2dvh;
-  left: 60%;
-  top: 2.4%;
+  left: 55%;
+  top: 3.5%;
   border: 2px solid black;
 }
 
 section div{
   position: absolute;
   padding: 2dvh;
-  left: 30%;
-  top: 2.5%;
+  left: 35.3%;
+  top: 3.5%;
   background-color: white;
   border: 2px solid black;
 }
