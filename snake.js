@@ -5,10 +5,12 @@ const botonSt = document.getElementById('botonStart');
 const puntosDisplay = document.getElementById('puntos');
 const selectorVeloz = document.getElementById('veloz');
 const cuadrado = 20;
+// Empieza el juego con la serpiente en medio de la pantalla
 let serpiente = [{x: canvas.width/2, y: canvas.height/2}];
 let dx = cuadrado;
 let dy = 0;
-// asignación aleatoria coordenadas con valor entero redondeado
+// Asignación aleatoria coordenadas con valor entero redondeado
+// en una cuadrícula de 20x20 y múltiplo del tamaño del cuadrado 
 let manzana = {x: Math.floor(Math.random() * 20) * cuadrado, y: Math.floor(Math.random() * 20) * cuadrado};
 let juego;
 let puntos = 0;
@@ -29,15 +31,15 @@ function empiezoJ() {
   manzana = {x: Math.floor(Math.random() * 20) * cuadrado, y: Math.floor(Math.random() * 20) * cuadrado};
   puntos = 0;
 
-  // Limpia intervalo juego
+  // Detener el intervalo del juego
   if (juego) {
     clearInterval(juego);
   }
   
-  // Velocidad juego
+  // Velocidad juego. Convierte este valor de cadena a un número entero
     velo = parseInt(selectorVeloz.value);
 
-  // Empieza juego si se selecciona velocidad
+  // Empieza juego si se selecciona velocidad, y define la frecuencia actualización juego
   if (velo >= 50) {
     juego = setInterval(dibujo, velo);
   }
@@ -104,7 +106,10 @@ function dibujo() {
   }
 }
 
-// Colision con ella misma
+// Comprueba colision con ella misma:
+// 'serpiente.slice(1)' matriz que contiene todos los segmentos de la serpiente, excepto la cabeza.
+// 'some()' pasa por cada elemento en la matriz serpiente.slice(1), y
+// aplica la función (segment => segment.x === serpiente[0].x && segment.y === serpiente[0].y) a cada segmento
 function colision() {
   return serpiente.slice(1).some(segment => segment.x === serpiente[0].x && segment.y === serpiente[0].y);
 }
