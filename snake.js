@@ -13,7 +13,7 @@ let dy = 0;
 let manzana = {x: Math.floor(Math.random() * 20) * cuadrado, y: Math.floor(Math.random() * 20) * cuadrado};
 let juego;
 let puntos = 0;
-ctx.fillStyle = "rgba(100,255,100,0.8)";
+ctx.fillStyle = "rgba(125,255,90,0.9)";
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 let selectorVeloz = document.getElementById('veloz');
 
