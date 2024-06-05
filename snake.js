@@ -44,7 +44,7 @@ function empiezoJ() {
     document.getElementById("output").innerHTML = salida;
 
   // Empieza juego si se selecciona velocidad, y define el intervalo actualización juego
-  if (velo >= 100 && velo <= 200) {
+  if (velo >= 50 && velo <= 200) {
     juego = setInterval(dibujo, velo);
   }
 }
@@ -123,7 +123,7 @@ function dibujo() {
 function levelUp() {
   clearInterval(juego);
   juego = setInterval(dibujo, velo);
-  velo = Math.max(velo - 50, 100)
+  velo = Math.max(velo - 50, 50)
    if (velo === 200) {
     nivel = "Facil";
   } else if (velo === 150) {
@@ -131,7 +131,7 @@ function levelUp() {
   } else if (velo === 100) {
     nivel =  "Difícil";
   } else {
-    nivel = nivel;
+    nivel =  "Muy Difícil";
   }
   output = ("Puntuación de: " + puntos + " Manzanas - Nivel Juego: " + nivel);
   document.getElementById("output").innerHTML = output;
