@@ -69,9 +69,9 @@ function dibujo() {
   // Borra todo el area del cuadrado
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Background cesped
+  // Background fondo verde
   let imagen = new Image();
-  imagen.src = "cesped.png";
+  imagen.src = "fondo_verde.jpg";
   let patron = ctx.createPattern(imagen, "no-repeat");
   ctx.fillStyle = patron;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
